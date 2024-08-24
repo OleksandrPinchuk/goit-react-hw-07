@@ -1,12 +1,9 @@
 import css from './Contact.module.css'
 import { TiUser } from "react-icons/ti";
 import { TiPhone } from "react-icons/ti";
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsSlice';
 
-const Contact = ({ contact }) => {
-    const dispatch = useDispatch();
-    
+
+const Contact = ({ contact, handleDelete }) => {
     return (
         <li className={css.item}>
             <div className={css.box}>
@@ -16,10 +13,10 @@ const Contact = ({ contact }) => {
                 </div>
                 <div className={css.name}>
                     <TiPhone className={css.svg} />
-                    <p>{contact.phone}</p>
+                    <p>{contact.number}</p>
                 </div>
             </div>
-            <button type='button' onClick={()=>dispatch(deleteContact(contact.id))}>Delete</button>
+            <button type='button' onClick={handleDelete(contact.id)}>Delete</button>
         </li>
     )
 }
