@@ -5,7 +5,6 @@ import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contactsOps';
 
-
 const initialValues = {
     name: '',
     number: '',
@@ -14,8 +13,7 @@ const initialValues = {
 const validationSchema = Yup.object().shape({
     name: Yup.string().min(3, 'min 3').max(20, 'max 20').required('required'),
     number: Yup.number().min(3, 'min 3').required('required'),
-})
-    
+});   
 
 const ContactForm = () => {
     const dispatch = useDispatch();

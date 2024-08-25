@@ -3,7 +3,7 @@ import css from './ContactList.module.css';
 import { useSelector } from 'react-redux';
 import { selectError, selectLoading } from '../../redux/selectors';
 
-const ContactList = ({contacts, handleDelete}) => {
+const ContactList = ({ contacts, handleDelete }) => {
     const loading = useSelector(selectLoading);
     const error = useSelector(selectError);
 
@@ -16,6 +16,6 @@ const ContactList = ({contacts, handleDelete}) => {
             ))}
         </ul>
     )
-}
+};
 
 export default ContactList
