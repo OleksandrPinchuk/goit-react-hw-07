@@ -18,7 +18,6 @@ const ContactList = () => {
     const handleDelete = (id) => {
         dispatch(deleteContact(id))
     };
-    
     return (
         <ul className={css.list}>
             {loading && <h2>loading..</h2>}
