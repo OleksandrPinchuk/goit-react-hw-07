@@ -1,23 +1,12 @@
 import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact, fetchContacts } from '../../redux/contactsOps';
-import { useEffect } from 'react';
-import { selectError, selectFilteredContacts, selectLoading } from '../../redux/selectors';
+import { useSelector } from 'react-redux';
+import { selectError, selectLoading } from '../../redux/selectors';
 
-const ContactList = () => {
-    const dispatch = useDispatch();
-    const contacts = useSelector(selectFilteredContacts);
+const ContactList = ({contacts, handleDelete}) => {
     const loading = useSelector(selectLoading);
     const error = useSelector(selectError);
 
-    useEffect(() => {
-        dispatch(fetchContacts())
-    }, [dispatch]);
-    
-    const handleDelete = (id) => {
-        dispatch(deleteContact(id))
-    };
     return (
         <ul className={css.list}>
             {loading && <h2>loading..</h2>}
